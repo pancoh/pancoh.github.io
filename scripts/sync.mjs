@@ -4,15 +4,16 @@
  *
  * Uso:  npm run sync
  *
- * Requer:
- *   - gh CLI instalado e autenticado (gh auth login)
- *   - node >= 18
+ * Requer node >= 18.
+ * Com gh CLI instalado e autenticado (gh auth login): vê repos privados também.
+ * Sem gh CLI: usa a API pública do GitHub (somente repos públicos).
  */
 
-import { execSync }                        from 'node:child_process';
-import { readFileSync, writeFileSync }     from 'node:fs';
-import { join, dirname }                   from 'node:path';
-import { fileURLToPath }                   from 'node:url';
+import { execSync }                         from 'node:child_process';
+import { readFileSync, writeFileSync }      from 'node:fs';
+import { join, dirname }                    from 'node:path';
+import { fileURLToPath }                    from 'node:url';
+import { get as httpsGet }                  from 'node:https';
 import { checkbox, input, select, confirm } from '@inquirer/prompts';
 
 const ROOT          = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -24,19 +25,74 @@ const MARKER_END   = '<!-- PROJECTS:END -->';
 
 // ── GitHub ───────────────────────────────────────────────────────────────────
 
-function fetchRepos() {
+function tryGhCLI() {
   try {
     const out = execSync(
       'gh repo list --json name,isPrivate,hasPages,homepageUrl,description --limit 200',
-      { encoding: 'utf-8' }
+      { encoding: 'utf-8', stdio: ['pipe', 'pipe', 'pipe'] }
     );
     return JSON.parse(out);
   } catch {
-    console.error('\nErro: gh CLI não encontrado ou não autenticado.');
-    console.error('→ Instale em https://cli.github.com');
-    console.error('→ Depois execute: gh auth login\n');
-    process.exit(1);
+    return null;
   }
+}
+
+function getOriginUsername() {
+  try {
+    const url = execSync('git config --get remote.origin.url', { encoding: 'utf-8' }).trim();
+    return url.match(/github\.com[:/]([^/]+)\//)?.[1] ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function fetchPublicRepos(username) {
+  return new Promise((resolve, reject) => {
+    httpsGet(
+      {
+        hostname: 'api.github.com',
+        path: `/users/${username}/repos?per_page=100&type=public&sort=updated`,
+        headers: { 'User-Agent': 'pancoh-portfolio-sync' },
+      },
+      res => {
+        let body = '';
+        res.on('data', chunk => { body += chunk; });
+        res.on('end', () => {
+          try {
+            const data = JSON.parse(body);
+            if (!Array.isArray(data)) {
+              reject(new Error(`API retornou erro: ${body.slice(0, 200)}`));
+              return;
+            }
+            resolve(data.map(r => ({
+              name:        r.name,
+              isPrivate:   false,
+              hasPages:    r.has_pages,
+              homepageUrl: r.homepage || '',
+              description: r.description || '',
+            })));
+          } catch (e) { reject(e); }
+        });
+      }
+    ).on('error', reject);
+  });
+}
+
+async function fetchRepos() {
+  // Tenta gh CLI primeiro (vê privados)
+  const ghRepos = tryGhCLI();
+  if (ghRepos) return ghRepos;
+
+  // Fallback: API pública
+  console.warn('⚠  gh CLI não encontrado — buscando somente repos públicos via API.');
+  console.warn('   Para ver repos privados: https://cli.github.com → gh auth login\n');
+
+  let username = getOriginUsername();
+  if (!username) {
+    username = await input({ message: 'Nome de usuário do GitHub:' });
+  }
+
+  return fetchPublicRepos(username);
 }
 
 // ── Projetos ─────────────────────────────────────────────────────────────────
@@ -64,14 +120,11 @@ const SUBDIV_LABELS = {
 
 const SUBDIV_ORDER = ['paineis', 'sistemas', 'ferramentas', 'apresentacoes'];
 
-function row(project, num) {
+function buildRow(project, num) {
   const isExternal = /^https?:\/\//.test(project.url);
-  const ariaLabel  = isExternal
-    ? ` aria-label="${project.title} — abre em site externo"`
-    : '';
+  const ariaLabel  = isExternal ? ` aria-label="${project.title} — abre em site externo"` : '';
   const subdiv     = project.subdiv ? ` data-subdiv="${project.subdiv}"` : '';
   const topics     = (project.topics || []).join(' ');
-
   return `
         <a class="project-row" href="${project.url}" data-topic="${topics}"${subdiv}${ariaLabel}>
           <span class="number">${String(num).padStart(2, '0')}</span>
@@ -82,10 +135,10 @@ function row(project, num) {
         </a>`;
 }
 
-function subdiv(name) {
+function buildSubdivHeader(key) {
   return `
-        <div class="subdiv-header" data-subdiv="${name}">
-          <span class="subdiv-label">${SUBDIV_LABELS[name] || name}</span>
+        <div class="subdiv-header" data-subdiv="${key}">
+          <span class="subdiv-label">${SUBDIV_LABELS[key] || key}</span>
         </div>`;
 }
 
@@ -96,22 +149,19 @@ function generateHTML(projects) {
 
   let num = 1;
 
-  // Trabalho — agrupado por subdivisão
   let trabalhoRows = '';
   for (const key of SUBDIV_ORDER) {
     const group = trabalho.filter(p => p.subdiv === key);
     if (!group.length) continue;
-    trabalhoRows += subdiv(key);
-    for (const p of group) trabalhoRows += row(p, num++);
+    trabalhoRows += buildSubdivHeader(key);
+    for (const p of group) trabalhoRows += buildRow(p, num++);
   }
 
-  // Pessoal
   let pessoalRows = '';
-  for (const p of pessoal) pessoalRows += row(p, num++);
+  for (const p of pessoal) pessoalRows += buildRow(p, num++);
 
-  // Em construção — projetos configurados + placeholder fixo
   let construcaoRows = '';
-  for (const p of construcao) construcaoRows += row(p, num++);
+  for (const p of construcao) construcaoRows += buildRow(p, num++);
   construcaoRows += `
         <div class="project-row wip">
           <span class="number">—</span>
@@ -154,7 +204,7 @@ function generateHTML(projects) {
   return { html, count };
 }
 
-function updateHTML(projects) {
+function applyToHTML(projects) {
   let src = readFileSync(HTML_FILE, 'utf-8');
 
   const si = src.indexOf(MARKER_START);
@@ -162,21 +212,15 @@ function updateHTML(projects) {
 
   if (si === -1 || ei < MARKER_END.length) {
     console.error('\nErro: marcadores PROJECTS:START / PROJECTS:END não encontrados no index.html.');
-    console.error('Adicione os marcadores manualmente ao redor dos tabpanels.\n');
     process.exit(1);
   }
 
-  const { html: projectsBlock, count } = generateHTML(projects);
+  const { html: block, count } = generateHTML(projects);
 
-  // Substitui o bloco de projetos
-  src = src.slice(0, si) + projectsBlock + src.slice(ei);
+  src = src.slice(0, si) + block + src.slice(ei);
 
-  // Atualiza contagem inicial (aba Trabalho ativa)
   const countText = `${String(count).padStart(2, '0')} ${count === 1 ? 'projeto' : 'projetos'}`;
-  src = src.replace(
-    /(<span id="contagem"[^>]*>)[^<]*/,
-    `$1${countText}`
-  );
+  src = src.replace(/(<span id="contagem"[^>]*>)[^<]*/, `$1${countText}`);
 
   writeFileSync(HTML_FILE, src, 'utf-8');
   return count;
@@ -198,21 +242,21 @@ async function configureProject(repo) {
   const division = await select({
     message: 'Divisão:',
     choices: [
-      { name: 'Trabalho',        value: 'trabalho' },
-      { name: 'Pessoal',         value: 'pessoal' },
-      { name: 'Em construção',   value: 'construcao' },
+      { name: 'Trabalho',      value: 'trabalho' },
+      { name: 'Pessoal',       value: 'pessoal' },
+      { name: 'Em construção', value: 'construcao' },
     ],
   });
 
-  let subdivisao = null;
+  let subdiv = null;
   if (division === 'trabalho') {
-    subdivisao = await select({
+    subdiv = await select({
       message: 'Subdivisão:',
       choices: [
-        { name: 'Painéis',        value: 'paineis' },
-        { name: 'Sistemas',       value: 'sistemas' },
-        { name: 'Ferramentas',    value: 'ferramentas' },
-        { name: 'Apresentações',  value: 'apresentacoes' },
+        { name: 'Painéis',       value: 'paineis' },
+        { name: 'Sistemas',      value: 'sistemas' },
+        { name: 'Ferramentas',   value: 'ferramentas' },
+        { name: 'Apresentações', value: 'apresentacoes' },
       ],
     });
   }
@@ -227,20 +271,11 @@ async function configureProject(repo) {
   });
 
   const category = await input({
-    message: 'Categoria (linha da listagem):',
+    message: 'Categoria (exibida na linha do projeto):',
     default: topics.map(t => t[0].toUpperCase() + t.slice(1)).join(' / '),
   });
 
-  return {
-    repo:        repo.name,
-    title,
-    description,
-    url,
-    division,
-    subdiv:      subdivisao,
-    topics,
-    category,
-  };
+  return { repo: repo.name, title, description, url, division, subdiv, topics, category };
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
@@ -248,7 +283,7 @@ async function configureProject(repo) {
 async function main() {
   console.log('\n── Sync de repositórios ─────────────────────────────\n');
 
-  const repos    = fetchRepos();
+  const repos    = await fetchRepos();
   const projects = loadProjects();
   const inPortfolio = new Set(projects.map(p => p.repo));
 
@@ -264,60 +299,50 @@ async function main() {
   }
 
   // Seleção interativa
-  const { selected } = await checkbox({
+  const selected = await checkbox({
     message: '\nSelecione os repositórios para o portfólio:',
     choices: repos.map(r => ({
-      name: [
-        r.isPrivate ? '[privado]' : '[público]',
-        r.hasPages  ? '[Pages]'  : '        ',
-        r.name,
-        r.description ? `— ${r.description.slice(0, 60)}` : '',
-      ].join('  '),
+      name: `${r.isPrivate ? '[privado] ' : '[público] '}${r.hasPages ? '[Pages] ' : '        '}${r.name}${r.description ? '  — ' + r.description.slice(0, 55) : ''}`,
       value: r.name,
       checked: inPortfolio.has(r.name),
     })),
     pageSize: 20,
-  }).then(v => ({ selected: v }));           // checkbox retorna o array direto
+  });
 
   const selectedSet = new Set(selected);
-
-  const added   = selected.filter(name => !inPortfolio.has(name));
-  const removed = [...inPortfolio].filter(name => !selectedSet.has(name));
+  const added       = selected.filter(name => !inPortfolio.has(name));
+  const removed     = [...inPortfolio].filter(name => !selectedSet.has(name));
 
   if (!added.length && !removed.length) {
     console.log('\nNenhuma alteração. Portfólio já está atualizado.\n');
     return;
   }
 
-  if (removed.length) {
-    console.log(`\nRemovendo: ${removed.join(', ')}`);
-  }
+  if (removed.length) console.log(`\nRemovendo: ${removed.join(', ')}`);
 
   // Mantém existentes, remove desmarcados
   let updated = projects.filter(p => selectedSet.has(p.repo));
 
-  // Avisa sobre repos privados adicionados
+  // Configura repos novos
   for (const name of added) {
-    const r = repos.find(r => r.name === name);
-    if (r?.isPrivate) {
+    const repo = repos.find(r => r.name === name);
+
+    if (repo.isPrivate) {
       const ok = await confirm({
         message: `"${name}" é privado — o link pode não funcionar. Incluir mesmo assim?`,
         default: false,
       });
-      if (!ok) {
-        selectedSet.delete(name);
-        continue;
-      }
+      if (!ok) continue;
     }
-    const project = await configureProject(r);
-    updated.push(project);
+
+    updated.push(await configureProject(repo));
   }
 
-  // Salva e reconstrói o HTML
+  // Salva e reconstrói HTML
   saveProjects(updated);
-  const count = updateHTML(updated);
-
+  const count     = applyToHTML(updated);
   const countText = `${String(count).padStart(2, '0')} ${count === 1 ? 'projeto' : 'projetos'}`;
+
   console.log(`\n✓ projects.json salvo`);
   console.log(`✓ index.html atualizado (${countText})`);
   console.log('\nPróximos passos:');
