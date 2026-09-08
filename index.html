@@ -71,116 +71,127 @@
   <section id="projetos" aria-labelledby="colecao">
     <div class="section-label">
       <span class="eyebrow">Índice de projetos</span>
-      <span id="contagem" aria-live="polite">07 projetos</span>
+      <span id="contagem" aria-live="polite">05 projetos</span>
     </div>
+
     <div class="catalog-head">
       <h2 id="colecao">Da ideia à prática.</h2>
+    </div>
+
+    <div class="tab-bar" role="tablist" aria-label="Divisões de projetos">
+      <button class="tab-btn" role="tab" aria-selected="true"  aria-controls="tab-trabalho"  id="tab-btn-trabalho">Trabalho</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-pessoal"   id="tab-btn-pessoal">Pessoal</button>
+      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-construcao" id="tab-btn-construcao">Em construção</button>
+    </div>
+
+    <!-- ── Aba: Trabalho ── -->
+    <div class="tabpanel" id="tab-trabalho" role="tabpanel" aria-labelledby="tab-btn-trabalho">
       <div class="filters" role="group" aria-label="Filtrar projetos por tema" hidden>
         <button type="button" data-filter="todos" aria-pressed="true">Todos</button>
         <button type="button" data-filter="mobilidade" aria-pressed="false">Mobilidade</button>
         <button type="button" data-filter="dados" aria-pressed="false">Dados</button>
         <button type="button" data-filter="aprendizagem" aria-pressed="false">Aprendizagem</button>
       </div>
+
+      <div class="project-list">
+
+        <div class="subdiv-header" data-subdiv="paineis">
+          <span class="subdiv-label">Painéis</span>
+        </div>
+
+        <a class="project-row" href="/painel_planos_cgdi/" data-topic="mobilidade dados" data-subdiv="paineis">
+          <span class="number">01</span>
+          <h3>Painel de Planos</h3>
+          <p>Monitoramento e consulta de planos de mobilidade urbana municipais.</p>
+          <span class="category">Mobilidade / Dados</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="project-row" href="/painel_bicicleta_cgdi/" data-topic="mobilidade dados" data-subdiv="paineis">
+          <span class="number">02</span>
+          <h3>Painel Bicicleta</h3>
+          <p>Panorama da mobilidade ciclística — infraestrutura, frota e políticas públicas.</p>
+          <span class="category">Mobilidade / Dados</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <div class="subdiv-header" data-subdiv="sistemas">
+          <span class="subdiv-label">Sistemas</span>
+        </div>
+
+        <a class="project-row" href="https://planmob-cgdi.vercel.app/" data-topic="mobilidade" data-subdiv="sistemas" aria-label="PlanMob CGDI — abre em site externo">
+          <span class="number">03</span>
+          <h3>PlanMob CGDI</h3>
+          <p>Plataforma de apoio à elaboração de planos de mobilidade urbana.</p>
+          <span class="category">Mobilidade · Externo</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <div class="subdiv-header" data-subdiv="ferramentas">
+          <span class="subdiv-label">Ferramentas</span>
+        </div>
+
+        <a class="project-row" href="/iqtpc/" data-topic="mobilidade" data-subdiv="ferramentas">
+          <span class="number">04</span>
+          <h3>IQTPC</h3>
+          <p>Índice de qualidade do transporte público coletivo — metodologia e resultados.</p>
+          <span class="category">Mobilidade</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <div class="subdiv-header" data-subdiv="apresentacoes">
+          <span class="subdiv-label">Apresentações</span>
+        </div>
+
+        <a class="project-row" href="/apresentacao_dados_pemob/" data-topic="mobilidade dados" data-subdiv="apresentacoes">
+          <span class="number">05</span>
+          <h3>Dados PEMOB</h3>
+          <p>Visualização dos dados e resultados da Pesquisa de Mobilidade Urbana.</p>
+          <span class="category">Dados / Apresentação</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
+        </a>
+
+      </div>
     </div>
 
-    <div class="project-list">
+    <!-- ── Aba: Pessoal ── -->
+    <div class="tabpanel" id="tab-pessoal" role="tabpanel" aria-labelledby="tab-btn-pessoal" hidden>
+      <div class="project-list">
 
-      <!-- ── TRABALHO ── -->
-      <div class="division-header" data-division="trabalho">
-        <span class="eyebrow">Trabalho</span>
+        <a class="project-row" href="/estudaai/" data-topic="aprendizagem">
+          <span class="number">06</span>
+          <h3>EstudaAI</h3>
+          <p>Ambiente de estudos com ferramentas para aprendizagem autodirigida.</p>
+          <span class="category">Aprendizagem</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <a class="project-row" href="/painel_thiago/" data-topic="dados">
+          <span class="number">07</span>
+          <h3>Dashboard Analítico</h3>
+          <p>Painel de visualização interativa de dados com gráficos e filtros dinâmicos.</p>
+          <span class="category">Dados</span>
+          <span class="row-arrow" aria-hidden="true">↗</span>
+        </a>
+
       </div>
-
-      <div class="subdiv-header" data-division="trabalho" data-subdiv="paineis">
-        <span class="subdiv-label">Painéis</span>
-      </div>
-
-      <a class="project-row" href="/painel_planos_cgdi/" data-topic="mobilidade dados" data-division="trabalho" data-subdiv="paineis">
-        <span class="number">01</span>
-        <h3>Painel de Planos</h3>
-        <p>Monitoramento e consulta de planos de mobilidade urbana municipais.</p>
-        <span class="category">Mobilidade / Dados</span>
-        <span class="row-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="project-row" href="/painel_bicicleta_cgdi/" data-topic="mobilidade dados" data-division="trabalho" data-subdiv="paineis">
-        <span class="number">02</span>
-        <h3>Painel Bicicleta</h3>
-        <p>Panorama da mobilidade ciclística — infraestrutura, frota e políticas públicas.</p>
-        <span class="category">Mobilidade / Dados</span>
-        <span class="row-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <div class="subdiv-header" data-division="trabalho" data-subdiv="sistemas">
-        <span class="subdiv-label">Sistemas</span>
-      </div>
-
-      <a class="project-row" href="https://planmob-cgdi.vercel.app/" data-topic="mobilidade" data-division="trabalho" data-subdiv="sistemas" aria-label="PlanMob CGDI — abre em site externo">
-        <span class="number">03</span>
-        <h3>PlanMob CGDI</h3>
-        <p>Plataforma de apoio à elaboração de planos de mobilidade urbana.</p>
-        <span class="category">Mobilidade · Externo</span>
-        <span class="row-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <div class="subdiv-header" data-division="trabalho" data-subdiv="ferramentas">
-        <span class="subdiv-label">Ferramentas</span>
-      </div>
-
-      <a class="project-row" href="/iqtpc/" data-topic="mobilidade" data-division="trabalho" data-subdiv="ferramentas">
-        <span class="number">04</span>
-        <h3>IQTPC</h3>
-        <p>Índice de qualidade do transporte público coletivo — metodologia e resultados.</p>
-        <span class="category">Mobilidade</span>
-        <span class="row-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <div class="subdiv-header" data-division="trabalho" data-subdiv="apresentacoes">
-        <span class="subdiv-label">Apresentações</span>
-      </div>
-
-      <a class="project-row" href="/apresentacao_dados_pemob/" data-topic="mobilidade dados" data-division="trabalho" data-subdiv="apresentacoes">
-        <span class="number">05</span>
-        <h3>Dados PEMOB</h3>
-        <p>Visualização dos dados e resultados da Pesquisa de Mobilidade Urbana.</p>
-        <span class="category">Dados / Apresentação</span>
-        <span class="row-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <!-- ── PESSOAL ── -->
-      <div class="division-header" data-division="pessoal">
-        <span class="eyebrow">Pessoal</span>
-      </div>
-
-      <a class="project-row" href="/estudaai/" data-topic="aprendizagem" data-division="pessoal">
-        <span class="number">06</span>
-        <h3>EstudaAI</h3>
-        <p>Ambiente de estudos com ferramentas para aprendizagem autodirigida.</p>
-        <span class="category">Aprendizagem</span>
-        <span class="row-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <a class="project-row" href="/painel_thiago/" data-topic="dados" data-division="pessoal">
-        <span class="number">07</span>
-        <h3>Dashboard Analítico</h3>
-        <p>Painel de visualização interativa de dados com gráficos e filtros dinâmicos.</p>
-        <span class="category">Dados</span>
-        <span class="row-arrow" aria-hidden="true">↗</span>
-      </a>
-
-      <!-- ── EM CONSTRUÇÃO ── -->
-      <div class="division-header" data-division="construcao">
-        <span class="eyebrow">Em construção</span>
-      </div>
-
-      <div class="project-row wip" data-topic="" data-division="construcao">
-        <span class="number">—</span>
-        <h3>Em breve</h3>
-        <p>Novo projeto em desenvolvimento. Mais detalhes em breve.</p>
-        <span class="category">Em breve</span>
-        <span class="row-arrow" aria-hidden="true">·</span>
-      </div>
-
     </div>
+
+    <!-- ── Aba: Em construção ── -->
+    <div class="tabpanel" id="tab-construcao" role="tabpanel" aria-labelledby="tab-btn-construcao" hidden>
+      <div class="project-list">
+
+        <div class="project-row wip">
+          <span class="number">—</span>
+          <h3>Em breve</h3>
+          <p>Novo projeto em desenvolvimento. Mais detalhes em breve.</p>
+          <span class="category">Em breve</span>
+          <span class="row-arrow" aria-hidden="true">·</span>
+        </div>
+
+      </div>
+    </div>
+
   </section>
 
   <section class="about" id="sobre" aria-labelledby="sobre-titulo">
@@ -208,7 +219,48 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ── Filtros por tema ──
+  const countEl   = document.querySelector('#contagem');
+  const tabBtns   = document.querySelectorAll('.tab-btn[role="tab"]');
+  const tabPanels = document.querySelectorAll('.tabpanel[role="tabpanel"]');
+
+  // ── Contagem de projetos visíveis no painel ──
+  function updateCount(panel, panelId) {
+    if (panelId === 'tab-construcao') {
+      countEl.textContent = 'em breve';
+      return;
+    }
+    const n = [...panel.querySelectorAll('.project-row:not(.wip)')].filter(r => !r.hidden).length;
+    countEl.textContent = String(n).padStart(2, '0') + (n === 1 ? ' projeto' : ' projetos');
+  }
+
+  // ── Troca de abas ──
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.setAttribute('aria-selected', 'false'));
+      tabPanels.forEach(p => { p.hidden = true; });
+
+      btn.setAttribute('aria-selected', 'true');
+      const panelId = btn.getAttribute('aria-controls');
+      const panel   = document.getElementById(panelId);
+      panel.hidden  = false;
+
+      // Reseta filtros e visibilidade ao trocar de aba
+      const panelFilters = panel.querySelector('.filters');
+      if (panelFilters) {
+        panelFilters.querySelectorAll('button').forEach((b, i) => {
+          b.setAttribute('aria-pressed', String(i === 0));
+        });
+      }
+      panel.querySelectorAll('.project-row, .subdiv-header').forEach(el => { el.hidden = false; });
+
+      updateCount(panel, panelId);
+    });
+  });
+
+  // Contagem inicial (aba Trabalho ativa)
+  updateCount(document.getElementById('tab-trabalho'), 'tab-trabalho');
+
+  // ── Filtros por tema (dentro da aba Trabalho) ──
   const filters = document.querySelector('.filters');
   filters.hidden = false;
 
@@ -218,46 +270,32 @@ document.addEventListener('DOMContentLoaded', () => {
         b.setAttribute('aria-pressed', String(b === button));
       });
 
-      const isAll = button.dataset.filter === 'todos';
-      let count = 0;
+      const isAll  = button.dataset.filter === 'todos';
+      const panel  = document.getElementById('tab-trabalho');
+      let count    = 0;
 
-      document.querySelectorAll('.project-row').forEach(row => {
-        if (row.classList.contains('wip')) {
-          // WIP só aparece no filtro "Todos"
-          row.hidden = !isAll;
-          return;
-        }
+      panel.querySelectorAll('.project-row').forEach(row => {
         const topics = row.dataset.topic ? row.dataset.topic.split(' ') : [];
-        const match = isAll || topics.includes(button.dataset.filter);
-        row.hidden = !match;
+        const match  = isAll || topics.includes(button.dataset.filter);
+        row.hidden   = !match;
         if (match) count++;
       });
 
       // Oculta subdivisões sem projetos visíveis
-      document.querySelectorAll('.subdiv-header').forEach(header => {
-        const subdiv = header.dataset.subdiv;
-        const hasVisible = [...document.querySelectorAll(`.project-row[data-subdiv="${subdiv}"]`)]
-          .some(row => !row.hidden);
+      panel.querySelectorAll('.subdiv-header').forEach(header => {
+        const hasVisible = [...panel.querySelectorAll(`.project-row[data-subdiv="${header.dataset.subdiv}"]`)]
+          .some(r => !r.hidden);
         header.hidden = !hasVisible;
       });
 
-      // Oculta divisões sem projetos visíveis
-      document.querySelectorAll('.division-header').forEach(header => {
-        const division = header.dataset.division;
-        const hasVisible = [...document.querySelectorAll(`.project-row[data-division="${division}"]`)]
-          .some(row => !row.hidden);
-        header.hidden = !hasVisible;
-      });
-
-      document.querySelector('#contagem').textContent =
-        String(count).padStart(2, '0') + (count === 1 ? ' projeto' : ' projetos');
+      countEl.textContent = String(count).padStart(2, '0') + (count === 1 ? ' projeto' : ' projetos');
     });
   });
 
-  // ── Prévia do painel (click/hover para carregar) ──
-  const preview  = document.querySelector('.preview');
-  const poster   = document.querySelector('.preview-poster');
-  const iframe   = preview && preview.querySelector('iframe');
+  // ── Click / hover para carregar o iframe de prévia ──
+  const preview = document.querySelector('.preview');
+  const poster  = document.querySelector('.preview-poster');
+  const iframe  = preview && preview.querySelector('iframe');
 
   if (poster && iframe) {
     let loaded = false;

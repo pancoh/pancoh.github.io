@@ -285,11 +285,7 @@ h1 em {
 
 /* ── Catalog head ── */
 .catalog-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding: 20px 0 30px;
+  padding: 20px 0 0;
 }
 
 .catalog-head h2 {
@@ -300,11 +296,46 @@ h1 em {
   margin: 0;
 }
 
-/* Filters */
+/* ── Tab bar ── */
+.tab-bar {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--line);
+  margin-top: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tab-bar::-webkit-scrollbar { display: none; }
+
+.tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 12px 28px 12px 0;
+  margin-bottom: -1px;        /* sobrepõe a border-bottom da tab-bar */
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color .15s, border-color .15s;
+}
+
+.tab-btn[aria-selected="true"] {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.tab-btn:hover:not([aria-selected="true"]) { color: var(--blue); }
+
+/* ── Tabpanel ── */
+.tabpanel { padding-top: 28px; }
+
+/* ── Filters ── */
 .filters {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  margin-bottom: 20px;
   opacity: 0;
   animation: fadeIn .3s .1s forwards;
 }
@@ -329,30 +360,6 @@ h1 em {
 /* ── Project list ── */
 .project-list { border-bottom: 1px solid var(--line); }
 
-/* Division headers (Trabalho / Pessoal / Em construção) */
-.division-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  border-top: 1px solid var(--ink);
-  padding: 20px 0 0;
-  margin-top: 28px;
-}
-
-.project-list > .division-header:first-child {
-  margin-top: 0;
-  border-top-color: var(--line);
-}
-
-.division-header .eyebrow { color: var(--muted); }
-
-.division-header::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: var(--line);
-}
-
 /* Sub-division headers (Painéis / Sistemas / Ferramentas / Apresentações) */
 .subdiv-header {
   display: flex;
@@ -363,7 +370,7 @@ h1 em {
 
 .subdiv-header::before {
   content: '';
-  width: 35px;           /* alinha com a coluna de número */
+  width: 35px;      /* alinha com a coluna de número */
   height: 1px;
   background: var(--line);
   flex-shrink: 0;
@@ -375,11 +382,6 @@ h1 em {
   height: 1px;
   background: var(--line);
 }
-
-/* Remove linha acima da primeira subdivisão após um division-header */
-.division-header + .subdiv-header { padding-top: 10px; }
-.division-header + .subdiv-header::before,
-.division-header + .subdiv-header::after { display: none; }
 
 .subdiv-label {
   font-size: 10px;
@@ -399,6 +401,9 @@ h1 em {
   padding: 26px 0;
   transition: color .18s, background .18s;
 }
+
+/* Remove border-top do primeiro row após um subdiv-header */
+.subdiv-header + .project-row { border-top: none; }
 
 .project-row:hover {
   color: var(--blue);
@@ -437,7 +442,7 @@ h1 em {
   cursor: default;
 }
 
-/* Hidden (filtro) */
+/* Hidden */
 [hidden] { display: none !important; }
 
 /* ── About ── */
@@ -528,7 +533,6 @@ footer a:hover { color: var(--blue); }
   .category { display: none; }
   .about, .contact { gap: 30px; }
   .filters button { padding: 8px; }
-  .catalog-head { align-items: flex-start; }
 }
 
 @media (max-width: 600px) {
@@ -550,7 +554,6 @@ footer a:hover { color: var(--blue); }
   .preview iframe { transform: scale(.34); }
   .feature-copy { padding: 26px; min-height: 300px; }
   .feature-copy h3 { margin: 22px 0 15px; font-size: 42px; }
-  .catalog-head { flex-direction: column; gap: 20px; }
   .catalog-head h2 { font-size: 34px; }
   .filters { gap: 2px; }
   .project-row {
@@ -562,8 +565,8 @@ footer a:hover { color: var(--blue); }
   .project-row p { grid-column: 2; grid-row: 2; max-width: 280px; }
   .row-arrow { grid-column: 3; grid-row: 1; }
   .subdiv-header::before { width: 24px; }
-  .about, .contact { grid-template-columns: 1fr; gap: 24px; margin-top: 65px; }
-  .about { margin-bottom: 0; }
+  .about, .contact { grid-template-columns: 1fr; gap: 24px; }
+  .about { margin-top: 65px; margin-bottom: 0; }
   .contact { margin-top: 40px; margin-bottom: 45px; }
   .about p { font-size: 31px; }
   footer { flex-wrap: wrap; line-height: 1.6; }
