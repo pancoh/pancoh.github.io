@@ -74,6 +74,12 @@
         color: var(--muted);
       }
 
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+      }
+
       .project {
         display: block;
         padding: 24px;
@@ -84,6 +90,12 @@
         color: inherit;
         text-decoration: none;
         transition: transform 160ms ease, border-color 160ms ease;
+      }
+
+      @media (max-width: 560px) {
+        .projects {
+          grid-template-columns: 1fr;
+        }
       }
 
       .project:hover,
@@ -106,6 +118,16 @@
         margin: 0;
         color: var(--muted);
         line-height: 1.6;
+      }
+
+      .project-meta {
+        display: inline-block;
+        margin-bottom: 12px;
+        color: var(--accent);
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
       .arrow {
@@ -131,11 +153,50 @@
 
       <section aria-labelledby="projetos">
         <h2 class="projects-title" id="projetos">Projetos</h2>
-        <a class="project" href="/estudaai/">
-          <h2>EstudaAI</h2>
-          <p>Acesse o projeto EstudaAI.</p>
-          <span class="arrow" aria-hidden="true">Conhecer o projeto →</span>
-        </a>
+        <div class="projects">
+          <a class="project" href="/estudaai/">
+            <h2>EstudaAI</h2>
+            <p>Ambiente de estudos e aprendizagem.</p>
+            <span class="arrow" aria-hidden="true">Acessar →</span>
+          </a>
+
+          <a class="project" href="/iqtpc/">
+            <h2>IQTPC</h2>
+            <p>Documentação e conteúdos do projeto IQTPC.</p>
+            <span class="arrow" aria-hidden="true">Acessar →</span>
+          </a>
+
+          <a class="project" href="/painel_planos_cgdi/">
+            <h2>Painel de Planos</h2>
+            <p>Consulta e acompanhamento de planos de mobilidade.</p>
+            <span class="arrow" aria-hidden="true">Acessar →</span>
+          </a>
+
+          <a class="project" href="/apresentacao_dados_pemob/">
+            <h2>Apresentação PEMOB</h2>
+            <p>Visualização dos dados e resultados do PEMOB.</p>
+            <span class="arrow" aria-hidden="true">Acessar →</span>
+          </a>
+
+          <a class="project" href="/painel_bicicleta_cgdi/">
+            <h2>Painel Bicicleta</h2>
+            <p>Indicadores e informações sobre mobilidade por bicicleta.</p>
+            <span class="arrow" aria-hidden="true">Acessar →</span>
+          </a>
+
+          <a class="project" href="/painel_thiago/">
+            <h2>Painel Thiago</h2>
+            <p>Acesso ao painel e às suas visualizações.</p>
+            <span class="arrow" aria-hidden="true">Acessar →</span>
+          </a>
+
+          <a class="project" href="https://planmob-cgdi.vercel.app/">
+            <span class="project-meta">Site externo</span>
+            <h2>PlanMob CGDI</h2>
+            <p>Projeto PlanMob publicado na Vercel.</p>
+            <span class="arrow" aria-hidden="true">Acessar →</span>
+          </a>
+        </div>
       </section>
 
       <footer>ramson.com.br</footer>
