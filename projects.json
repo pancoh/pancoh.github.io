@@ -1,0 +1,72 @@
+[
+  {
+    "repo": "painel_planos_cgdi",
+    "title": "Painel de Planos",
+    "description": "Monitoramento e consulta de planos de mobilidade urbana municipais.",
+    "url": "/painel_planos_cgdi/",
+    "division": "trabalho",
+    "subdiv": "paineis",
+    "topics": ["mobilidade", "dados"],
+    "category": "Mobilidade / Dados"
+  },
+  {
+    "repo": "painel_bicicleta_cgdi",
+    "title": "Painel Bicicleta",
+    "description": "Panorama da mobilidade ciclística — infraestrutura, frota e políticas públicas.",
+    "url": "/painel_bicicleta_cgdi/",
+    "division": "trabalho",
+    "subdiv": "paineis",
+    "topics": ["mobilidade", "dados"],
+    "category": "Mobilidade / Dados"
+  },
+  {
+    "repo": "planmob-cgdi",
+    "title": "PlanMob CGDI",
+    "description": "Plataforma de apoio à elaboração de planos de mobilidade urbana.",
+    "url": "https://planmob-cgdi.vercel.app/",
+    "division": "trabalho",
+    "subdiv": "sistemas",
+    "topics": ["mobilidade"],
+    "category": "Mobilidade · Externo"
+  },
+  {
+    "repo": "iqtpc",
+    "title": "IQTPC",
+    "description": "Índice de qualidade do transporte público coletivo — metodologia e resultados.",
+    "url": "/iqtpc/",
+    "division": "trabalho",
+    "subdiv": "ferramentas",
+    "topics": ["mobilidade"],
+    "category": "Mobilidade"
+  },
+  {
+    "repo": "apresentacao_dados_pemob",
+    "title": "Dados PEMOB",
+    "description": "Visualização dos dados e resultados da Pesquisa de Mobilidade Urbana.",
+    "url": "/apresentacao_dados_pemob/",
+    "division": "trabalho",
+    "subdiv": "apresentacoes",
+    "topics": ["mobilidade", "dados"],
+    "category": "Dados / Apresentação"
+  },
+  {
+    "repo": "estudaai",
+    "title": "EstudaAI",
+    "description": "Ambiente de estudos com ferramentas para aprendizagem autodirigida.",
+    "url": "/estudaai/",
+    "division": "pessoal",
+    "subdiv": null,
+    "topics": ["aprendizagem"],
+    "category": "Aprendizagem"
+  },
+  {
+    "repo": "painel_thiago",
+    "title": "Dashboard Analítico",
+    "description": "Painel de visualização interativa de dados com gráficos e filtros dinâmicos.",
+    "url": "/painel_thiago/",
+    "division": "pessoal",
+    "subdiv": null,
+    "topics": ["dados"],
+    "category": "Dados"
+  }
+]
