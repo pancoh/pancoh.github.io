@@ -6,7 +6,10 @@
     "url": "/painel_planos_cgdi/",
     "division": "trabalho",
     "subdiv": "paineis",
-    "topics": ["mobilidade", "dados"],
+    "topics": [
+      "mobilidade",
+      "dados"
+    ],
     "category": "Mobilidade / Dados"
   },
   {
@@ -16,18 +19,11 @@
     "url": "/painel_bicicleta_cgdi/",
     "division": "trabalho",
     "subdiv": "paineis",
-    "topics": ["mobilidade", "dados"],
+    "topics": [
+      "mobilidade",
+      "dados"
+    ],
     "category": "Mobilidade / Dados"
-  },
-  {
-    "repo": "planmob-cgdi",
-    "title": "PlanMob CGDI",
-    "description": "Plataforma de apoio à elaboração de planos de mobilidade urbana.",
-    "url": "https://planmob-cgdi.vercel.app/",
-    "division": "trabalho",
-    "subdiv": "sistemas",
-    "topics": ["mobilidade"],
-    "category": "Mobilidade · Externo"
   },
   {
     "repo": "iqtpc",
@@ -36,7 +32,9 @@
     "url": "/iqtpc/",
     "division": "trabalho",
     "subdiv": "ferramentas",
-    "topics": ["mobilidade"],
+    "topics": [
+      "mobilidade"
+    ],
     "category": "Mobilidade"
   },
   {
@@ -46,27 +44,22 @@
     "url": "/apresentacao_dados_pemob/",
     "division": "trabalho",
     "subdiv": "apresentacoes",
-    "topics": ["mobilidade", "dados"],
+    "topics": [
+      "mobilidade",
+      "dados"
+    ],
     "category": "Dados / Apresentação"
   },
   {
-    "repo": "estudaai",
-    "title": "EstudaAI",
-    "description": "Ambiente de estudos com ferramentas para aprendizagem autodirigida.",
-    "url": "/estudaai/",
-    "division": "pessoal",
-    "subdiv": null,
-    "topics": ["aprendizagem"],
-    "category": "Aprendizagem"
-  },
-  {
-    "repo": "painel_thiago",
-    "title": "Dashboard Analítico",
-    "description": "Painel de visualização interativa de dados com gráficos e filtros dinâmicos.",
-    "url": "/painel_thiago/",
-    "division": "pessoal",
-    "subdiv": null,
-    "topics": ["dados"],
-    "category": "Dados"
+    "repo": "planmob_cgdi",
+    "title": "planmob_cgdi",
+    "description": "Sistema Planos Mobilidade Urbana",
+    "url": "https://planmob-cgdi.vercel.app",
+    "division": "trabalho",
+    "subdiv": "sistemas",
+    "topics": [
+      "mobilidade"
+    ],
+    "category": "Mobilidade"
   }
 ]
