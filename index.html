@@ -1,295 +1,80 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Projetos de Ramson em mobilidade, informação e aprendizagem. Explore painéis, estudos e ferramentas digitais.">
-<meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1a1c17" media="(prefers-color-scheme: dark)">
-<meta property="og:title" content="Ramson — Dados, ideias e ferramentas">
-<meta property="og:description" content="Projetos em mobilidade, informação e aprendizagem. Explore painéis, estudos e ferramentas digitais.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ramson.com.br/">
-<!-- og:image: adicione o caminho de uma captura de tela do portfólio -->
-<!-- <meta property="og:image" content="https://ramson.com.br/og-image.png"> -->
-<link rel="canonical" href="https://ramson.com.br/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23244de4'/><text x='16' y='22' text-anchor='middle' fill='white' font-size='18' font-weight='bold' font-family='Arial,sans-serif'>R</text></svg>">
-<title>Ramson — Dados, ideias e ferramentas</title>
-<link rel="stylesheet" href="/editorial.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Projetos de Ramson sobre mobilidade urbana e dados.">
+  <meta name="theme-color" content="#fafafa">
+  <title>Ramson — Projetos</title>
+  <link rel="stylesheet" href="editorial.css">
 </head>
-<body id="topo">
-<a class="skip" href="#projetos">Pular para os projetos</a>
-<div class="wrap">
+<body>
+  <header>
+    <a class="name" href="/">Ramson</a>
+    <a href="https://github.com/pancoh">GitHub ↗</a>
+  </header>
 
-<header class="masthead">
-  <a class="wordmark" href="#topo" aria-label="Ramson, início">ramson<span>.</span></a>
-  <span class="edition eyebrow">Um arquivo de ideias em prática</span>
-  <nav aria-label="Principal">
-    <a href="#projetos">Projetos</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </nav>
-</header>
+  <main>
+    <section class="intro">
+      <h1>Projetos sobre mobilidade urbana e dados.</h1>
+      <p>Uma seleção de painéis, sistemas e estudos que desenvolvi.</p>
+    </section>
 
-<main>
+    <section aria-labelledby="projetos">
+      <h2 id="projetos">Projetos</h2>
 
-  <section class="intro" aria-labelledby="titulo">
-    <div class="intro-top">
-      <span class="eyebrow">Mobilidade · Informação · Aprendizagem</span>
-      <span class="eyebrow">Portfólio / 01</span>
-    </div>
-    <h1 id="titulo">Dados, ideias<br>e ferramentas para<br><em>ver mais longe.</em></h1>
-    <div class="intro-bottom">
-      <p>Cidades, informação e aprendizagem. Um repositório de projetos, ferramentas e estudos reunidos num só lugar.</p>
-      <a class="jump" href="#projetos">Explorar os projetos <span aria-hidden="true">↓</span></a>
-    </div>
-  </section>
-
-  <section aria-labelledby="destaque">
-    <div class="section-label">
-      <h2 id="destaque">Em destaque</h2>
-      <span>01 / Mobilidade</span>
-    </div>
-    <article class="feature">
-      <div class="preview">
-        <div class="preview-poster">
-          <p class="preview-poster-eyebrow eyebrow">Prévia ao vivo</p>
-          <button class="load-preview" type="button">Carregar interface <span aria-hidden="true">→</span></button>
-        </div>
-        <iframe data-src="https://ramson.com.br/painel_planos_cgdi/" title="Prévia do Painel de Planos de Mobilidade" tabindex="-1" aria-hidden="true" inert></iframe>
-        <span class="preview-label">Painel de Planos · interface ao vivo</span>
-      </div>
-      <div class="feature-copy">
-        <span class="eyebrow">Dados para olhar as cidades</span>
-        <h3>Planejar começa<br>por conhecer.</h3>
-        <p>Consulte o Painel de Planos e explore informações sobre o planejamento da mobilidade urbana em municípios brasileiros.</p>
-        <a class="project-link" href="/painel_planos_cgdi/">Explorar o painel <span aria-hidden="true">↗</span></a>
-      </div>
-    </article>
-  </section>
-
-  <section id="projetos" aria-labelledby="colecao">
-    <div class="section-label">
-      <span class="eyebrow">Índice de projetos</span>
-      <span id="contagem" aria-live="polite">05 projetos</span>
-    </div>
-
-    <div class="catalog-head">
-      <h2 id="colecao">Da ideia à prática.</h2>
-    </div>
-
-    <div class="tab-bar" role="tablist" aria-label="Divisões de projetos">
-      <button class="tab-btn" role="tab" aria-selected="true"  aria-controls="tab-trabalho"  id="tab-btn-trabalho">Trabalho</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-pessoal"   id="tab-btn-pessoal">Pessoal</button>
-      <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-construcao" id="tab-btn-construcao">Em construção</button>
-    </div>
-
-    <!-- PROJECTS:START -->
-
-    <!-- ── Aba: Trabalho ── -->
-    <div class="tabpanel" id="tab-trabalho" role="tabpanel" aria-labelledby="tab-btn-trabalho">
-      <div class="filters" role="group" aria-label="Filtrar projetos por tema" hidden>
-        <button type="button" data-filter="todos" aria-pressed="true">Todos</button>
-        <button type="button" data-filter="mobilidade" aria-pressed="false">Mobilidade</button>
-        <button type="button" data-filter="dados" aria-pressed="false">Dados</button>
-        <button type="button" data-filter="aprendizagem" aria-pressed="false">Aprendizagem</button>
-      </div>
-      <div class="project-list">
-        <div class="subdiv-header" data-subdiv="paineis">
-          <span class="subdiv-label">Painéis</span>
-        </div>
-        <a class="project-row" href="/painel_planos_cgdi/" data-topic="mobilidade dados" data-subdiv="paineis">
-          <span class="number">01</span>
-          <h3>Painel de Planos</h3>
-          <p>Monitoramento e consulta de planos de mobilidade urbana municipais.</p>
-          <span class="category">Mobilidade / Dados</span>
-          <span class="row-arrow" aria-hidden="true">↗</span>
+      <div class="projects">
+        <a href="/painel_planos_cgdi/">
+          <span>01</span>
+          <div>
+            <h3>Painel de Planos</h3>
+            <p>Monitoramento e consulta de planos de mobilidade urbana municipais.</p>
+          </div>
+          <strong aria-hidden="true">↗</strong>
         </a>
-        <a class="project-row" href="/painel_bicicleta_cgdi/" data-topic="mobilidade dados" data-subdiv="paineis">
-          <span class="number">02</span>
-          <h3>Painel Bicicleta</h3>
-          <p>Panorama da mobilidade ciclística — infraestrutura, frota e políticas públicas.</p>
-          <span class="category">Mobilidade / Dados</span>
-          <span class="row-arrow" aria-hidden="true">↗</span>
+
+        <a href="/painel_bicicleta_cgdi/">
+          <span>02</span>
+          <div>
+            <h3>Painel Bicicleta</h3>
+            <p>Panorama da infraestrutura, frota e políticas de mobilidade ciclística.</p>
+          </div>
+          <strong aria-hidden="true">↗</strong>
         </a>
-        <div class="subdiv-header" data-subdiv="sistemas">
-          <span class="subdiv-label">Sistemas</span>
-        </div>
-        <a class="project-row" href="https://planmob-cgdi.vercel.app" data-topic="mobilidade" data-subdiv="sistemas" aria-label="planmob_cgdi — abre em site externo">
-          <span class="number">03</span>
-          <h3>planmob_cgdi</h3>
-          <p>Sistema Planos Mobilidade Urbana</p>
-          <span class="category">Mobilidade</span>
-          <span class="row-arrow" aria-hidden="true">↗</span>
+
+        <a href="https://planmob-cgdi.vercel.app">
+          <span>03</span>
+          <div>
+            <h3>PlanMob CGDI</h3>
+            <p>Sistema de Planos de Mobilidade Urbana.</p>
+          </div>
+          <strong aria-hidden="true">↗</strong>
         </a>
-        <div class="subdiv-header" data-subdiv="ferramentas">
-          <span class="subdiv-label">Ferramentas</span>
-        </div>
-        <a class="project-row" href="/iqtpc/" data-topic="mobilidade" data-subdiv="ferramentas">
-          <span class="number">04</span>
-          <h3>IQTPC</h3>
-          <p>Índice de qualidade do transporte público coletivo — metodologia e resultados.</p>
-          <span class="category">Mobilidade</span>
-          <span class="row-arrow" aria-hidden="true">↗</span>
+
+        <a href="/iqtpc/">
+          <span>04</span>
+          <div>
+            <h3>IQTPC</h3>
+            <p>Índice de qualidade do transporte público coletivo.</p>
+          </div>
+          <strong aria-hidden="true">↗</strong>
         </a>
-        <div class="subdiv-header" data-subdiv="apresentacoes">
-          <span class="subdiv-label">Apresentações</span>
-        </div>
-        <a class="project-row" href="/apresentacao_dados_pemob/" data-topic="mobilidade dados" data-subdiv="apresentacoes">
-          <span class="number">05</span>
-          <h3>Dados PEMOB</h3>
-          <p>Visualização dos dados e resultados da Pesquisa de Mobilidade Urbana.</p>
-          <span class="category">Dados / Apresentação</span>
-          <span class="row-arrow" aria-hidden="true">↗</span>
+
+        <a href="/apresentacao_dados_pemob/">
+          <span>05</span>
+          <div>
+            <h3>Dados PEMOB</h3>
+            <p>Visualização dos resultados da Pesquisa de Mobilidade Urbana.</p>
+          </div>
+          <strong aria-hidden="true">↗</strong>
         </a>
       </div>
-    </div>
+    </section>
+  </main>
 
-    <!-- ── Aba: Pessoal ── -->
-    <div class="tabpanel" id="tab-pessoal" role="tabpanel" aria-labelledby="tab-btn-pessoal" hidden>
-      <div class="project-list">
-      </div>
-    </div>
-
-    <!-- ── Aba: Em construção ── -->
-    <div class="tabpanel" id="tab-construcao" role="tabpanel" aria-labelledby="tab-btn-construcao" hidden>
-      <div class="project-list">
-        <div class="project-row wip">
-          <span class="number">—</span>
-          <h3>Em breve</h3>
-          <p>Novo projeto em desenvolvimento. Mais detalhes em breve.</p>
-          <span class="category">Em breve</span>
-          <span class="row-arrow" aria-hidden="true">·</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROJECTS:END -->
-
-  </section>
-
-  <section class="about" id="sobre" aria-labelledby="sobre-titulo">
-    <h2 id="sobre-titulo">Sobre este espaço</h2>
-    <p>Projetos e experimentos em mobilidade urbana, dados e aprendizagem. Um arquivo de coisas feitas, estudadas e em andamento.</p>
-  </section>
-
-  <section class="contact" id="contato" aria-labelledby="contato-titulo">
-    <h2 id="contato-titulo">Contato</h2>
-    <div class="contact-links">
-      <a href="https://github.com/pancoh" aria-label="GitHub de Ramson — abre em site externo">GitHub ↗</a>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <span>Ramson · Projetos e experimentos</span>
-  <a href="https://github.com/pancoh" aria-label="GitHub — abre em site externo">GitHub ↗</a>
-  <a href="#topo">Voltar ao início ↑</a>
-</footer>
-
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-
-  const countEl   = document.querySelector('#contagem');
-  const tabBtns   = document.querySelectorAll('.tab-btn[role="tab"]');
-  const tabPanels = document.querySelectorAll('.tabpanel[role="tabpanel"]');
-
-  // ── Contagem de projetos visíveis no painel ──
-  function updateCount(panel, panelId) {
-    if (panelId === 'tab-construcao') {
-      countEl.textContent = 'em breve';
-      return;
-    }
-    const n = [...panel.querySelectorAll('.project-row:not(.wip)')].filter(r => !r.hidden).length;
-    countEl.textContent = String(n).padStart(2, '0') + (n === 1 ? ' projeto' : ' projetos');
-  }
-
-  // ── Troca de abas ──
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => b.setAttribute('aria-selected', 'false'));
-      tabPanels.forEach(p => { p.hidden = true; });
-
-      btn.setAttribute('aria-selected', 'true');
-      const panelId = btn.getAttribute('aria-controls');
-      const panel   = document.getElementById(panelId);
-      panel.hidden  = false;
-
-      // Reseta filtros e visibilidade ao trocar de aba
-      const panelFilters = panel.querySelector('.filters');
-      if (panelFilters) {
-        panelFilters.querySelectorAll('button').forEach((b, i) => {
-          b.setAttribute('aria-pressed', String(i === 0));
-        });
-      }
-      panel.querySelectorAll('.project-row, .subdiv-header').forEach(el => { el.hidden = false; });
-
-      updateCount(panel, panelId);
-    });
-  });
-
-  // Contagem inicial (aba Trabalho ativa)
-  updateCount(document.getElementById('tab-trabalho'), 'tab-trabalho');
-
-  // ── Filtros por tema (dentro da aba Trabalho) ──
-  const filters = document.querySelector('.filters');
-  filters.hidden = false;
-
-  filters.querySelectorAll('button').forEach(button => {
-    button.addEventListener('click', () => {
-      filters.querySelectorAll('button').forEach(b => {
-        b.setAttribute('aria-pressed', String(b === button));
-      });
-
-      const isAll  = button.dataset.filter === 'todos';
-      const panel  = document.getElementById('tab-trabalho');
-      let count    = 0;
-
-      panel.querySelectorAll('.project-row').forEach(row => {
-        const topics = row.dataset.topic ? row.dataset.topic.split(' ') : [];
-        const match  = isAll || topics.includes(button.dataset.filter);
-        row.hidden   = !match;
-        if (match) count++;
-      });
-
-      // Oculta subdivisões sem projetos visíveis
-      panel.querySelectorAll('.subdiv-header').forEach(header => {
-        const hasVisible = [...panel.querySelectorAll(`.project-row[data-subdiv="${header.dataset.subdiv}"]`)]
-          .some(r => !r.hidden);
-        header.hidden = !hasVisible;
-      });
-
-      countEl.textContent = String(count).padStart(2, '0') + (count === 1 ? ' projeto' : ' projetos');
-    });
-  });
-
-  // ── Click / hover para carregar o iframe de prévia ──
-  const preview = document.querySelector('.preview');
-  const poster  = document.querySelector('.preview-poster');
-  const iframe  = preview && preview.querySelector('iframe');
-
-  if (poster && iframe) {
-    let loaded = false;
-
-    const loadIframe = () => {
-      if (loaded) return;
-      loaded = true;
-      iframe.src = iframe.dataset.src;
-      poster.classList.add('is-loading');
-      iframe.addEventListener('load', () => poster.classList.add('is-hidden'), { once: true });
-    };
-
-    poster.querySelector('.load-preview').addEventListener('click', loadIframe);
-
-    let hoverTimer;
-    preview.addEventListener('mouseenter', () => { hoverTimer = setTimeout(loadIframe, 1000); });
-    preview.addEventListener('mouseleave', () => clearTimeout(hoverTimer));
-  }
-
-});
-</script>
+  <footer>
+    <span>Ramson</span>
+    <span>Mobilidade urbana e dados</span>
+  </footer>
 </body>
 </html>
