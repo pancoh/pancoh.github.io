@@ -3,78 +3,121 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Projetos de Ramson sobre mobilidade urbana e dados.">
-  <meta name="theme-color" content="#fafafa">
-  <title>Ramson — Projetos</title>
+  <meta name="description" content="Arquivo de projetos de Ramson em mobilidade urbana, dados, produtos digitais e inteligência artificial.">
+  <meta name="theme-color" content="#10261f">
+  <title>Ramson — Arquivo de projetos</title>
   <link rel="stylesheet" href="editorial.css">
 </head>
 <body>
-  <header>
-    <a class="name" href="/">Ramson</a>
-    <a href="https://github.com/pancoh">GitHub ↗</a>
+  <a class="skip-link" href="#arquivo">Ir para os projetos</a>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="Ramson — início">R.</a>
+    <nav aria-label="Navegação principal">
+      <a href="#destaques">Destaques</a><a href="#arquivo">Arquivo</a><a href="#sobre">Sobre</a>
+    </nav>
+    <span class="availability"><i aria-hidden="true"></i> Brasília, Brasil</span>
   </header>
 
   <main>
-    <section class="intro">
-      <h1>Projetos sobre mobilidade urbana e dados.</h1>
-      <p>Uma seleção de painéis, sistemas e estudos que desenvolvi.</p>
+    <section class="hero" aria-labelledby="titulo">
+      <p class="eyebrow">Portfólio · 2024—2026</p>
+      <h1 id="titulo">Transformo dados públicos em <em>produtos que ajudam a decidir.</em></h1>
+      <div class="hero-footer">
+        <p>Projetos de mobilidade urbana, análise de dados e inteligência artificial — da metodologia à interface final.</p>
+        <a href="#arquivo">Ver arquivo completo <span aria-hidden="true">↓</span></a>
+      </div>
     </section>
 
-    <section aria-labelledby="projetos">
-      <h2 id="projetos">Projetos</h2>
+    <section class="numbers" aria-label="Resumo do portfólio">
+      <div><strong>18</strong><span>projetos selecionados</span></div>
+      <div><strong>04</strong><span>frentes de atuação</span></div>
+      <div><strong>13</strong><span>trabalhos internos</span></div>
+      <div><strong>05</strong><span>projetos publicados</span></div>
+    </section>
 
-      <div class="projects">
-        <a href="/painel_planos_cgdi/">
-          <span>01</span>
-          <div>
-            <h3>Painel de Planos</h3>
-            <p>Monitoramento e consulta de planos de mobilidade urbana municipais.</p>
-          </div>
-          <strong aria-hidden="true">↗</strong>
-        </a>
-
-        <a href="/painel_bicicleta_cgdi/">
-          <span>02</span>
-          <div>
-            <h3>Painel Bicicleta</h3>
-            <p>Panorama da infraestrutura, frota e políticas de mobilidade ciclística.</p>
-          </div>
-          <strong aria-hidden="true">↗</strong>
-        </a>
-
-        <a href="https://planmob-cgdi.vercel.app">
-          <span>03</span>
-          <div>
-            <h3>PlanMob CGDI</h3>
-            <p>Sistema de Planos de Mobilidade Urbana.</p>
-          </div>
-          <strong aria-hidden="true">↗</strong>
-        </a>
-
-        <a href="/iqtpc/">
-          <span>04</span>
-          <div>
-            <h3>IQTPC</h3>
-            <p>Índice de qualidade do transporte público coletivo.</p>
-          </div>
-          <strong aria-hidden="true">↗</strong>
-        </a>
-
-        <a href="/apresentacao_dados_pemob/">
-          <span>05</span>
-          <div>
-            <h3>Dados PEMOB</h3>
-            <p>Visualização dos resultados da Pesquisa de Mobilidade Urbana.</p>
-          </div>
-          <strong aria-hidden="true">↗</strong>
-        </a>
+    <section class="featured" id="destaques" aria-labelledby="titulo-destaques">
+      <div class="section-heading">
+        <p class="eyebrow">Trabalhos em destaque</p>
+        <h2 id="titulo-destaques">Projetos que conectam política pública, engenharia de dados e design.</h2>
       </div>
+      <div class="featured-grid">
+        <a class="feature feature-green" href="/painel_planos_cgdi/">
+          <div class="feature-top"><span class="tag tag-light">Dados públicos</span><span aria-hidden="true">↗</span></div>
+          <div class="feature-viz map-viz" aria-hidden="true"><span>5.570 municípios</span></div>
+          <div><p class="feature-number">01</p><h3>Painel de Planos de Mobilidade Urbana</h3><p>Monitoramento nacional da situação dos planos municipais, com séries históricas, mapas e recortes territoriais.</p></div>
+        </a>
+        <a class="feature feature-blue" href="https://planmob-cgdi.vercel.app">
+          <div class="feature-top"><span class="tag tag-light">Produto digital</span><span aria-hidden="true">↗</span></div>
+          <div class="feature-viz orbit-viz" aria-hidden="true"><i></i><i></i><i></i><b>PlanMob</b></div>
+          <div><p class="feature-number">02</p><h3>PlanMob CGDI</h3><p>Sistema para organizar, acompanhar e qualificar informações sobre Planos de Mobilidade Urbana.</p></div>
+        </a>
+        <article class="feature feature-ink">
+          <div class="feature-top"><span class="tag tag-dark">Projeto interno</span><span class="lock-label">Acesso restrito</span></div>
+          <div class="feature-viz document-viz" aria-hidden="true"><span></span><span></span><span></span><b>NT</b></div>
+          <div><p class="feature-number">03</p><h3>Agente de Análise Legislativa</h3><p>Fluxo assistido por IA para analisar proposições, verificar normas e preparar Notas Técnicas para revisão humana.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="archive" id="arquivo" aria-labelledby="titulo-arquivo">
+      <div class="archive-intro">
+        <div><p class="eyebrow">Arquivo de projetos</p><h2 id="titulo-arquivo">Do experimento à operação.</h2></div>
+        <p>O acervo reúne produtos publicados e trabalhos internos. Itens restritos mostram somente escopo e contribuição — sem código, repositório ou dados sensíveis.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filtrar projetos">
+        <button class="active" type="button" data-filter="all" aria-pressed="true">Todos <span>18</span></button>
+        <button type="button" data-filter="mobilidade" aria-pressed="false">Mobilidade <span>7</span></button>
+        <button type="button" data-filter="dados" aria-pressed="false">Dados <span>5</span></button>
+        <button type="button" data-filter="ia" aria-pressed="false">IA & automação <span>3</span></button>
+        <button type="button" data-filter="produto" aria-pressed="false">Produtos <span>3</span></button>
+      </div>
+      <div class="project-list" aria-live="polite">
+        <a class="project" href="/painel_planos_cgdi/" data-category="mobilidade"><span class="project-index">01</span><div><h3>Painel de Planos</h3><p>Monitoramento nacional dos Planos de Mobilidade Urbana.</p></div><span class="project-meta">Observable · 2026</span><span class="project-status public">Ver projeto ↗</span></a>
+        <a class="project" href="/painel_bicicleta_cgdi/" data-category="mobilidade"><span class="project-index">02</span><div><h3>Painel Bicicleta</h3><p>Panorama da infraestrutura e das políticas de mobilidade ciclística.</p></div><span class="project-meta">Dados · Mapas</span><span class="project-status public">Ver projeto ↗</span></a>
+        <a class="project" href="https://planmob-cgdi.vercel.app" data-category="produto"><span class="project-index">03</span><div><h3>PlanMob CGDI</h3><p>Sistema de gestão e acompanhamento de planos municipais.</p></div><span class="project-meta">Next.js · Supabase</span><span class="project-status public">Ver projeto ↗</span></a>
+        <a class="project" href="/iqtpc/" data-category="mobilidade"><span class="project-index">04</span><div><h3>IQTPC</h3><p>Índice e metodologia para avaliar a qualidade do transporte coletivo.</p></div><span class="project-meta">Pesquisa · Quarto</span><span class="project-status public">Ler publicação ↗</span></a>
+        <a class="project" href="/apresentacao_dados_pemob/" data-category="dados"><span class="project-index">05</span><div><h3>Dados PEMOB</h3><p>Leitura visual dos resultados da Pesquisa Nacional de Mobilidade Urbana.</p></div><span class="project-meta">Visualização · Dados</span><span class="project-status public">Ver projeto ↗</span></a>
+        <article class="project restricted" data-category="produto"><span class="project-index">06</span><div><h3>Plataforma PEMOB</h3><p>Cadastro, aplicação e acompanhamento de questionários da pesquisa nacional.</p></div><span class="project-meta">Next.js · Banco de dados</span><span class="project-status">Projeto interno</span></article>
+        <article class="project restricted" data-category="ia"><span class="project-index">07</span><div><h3>Agente de Análise Legislativa</h3><p>Análise assistida, pesquisa normativa e geração de Notas Técnicas.</p></div><span class="project-meta">Python · IA · Word</span><span class="project-status">Projeto interno</span></article>
+        <article class="project restricted" data-category="dados"><span class="project-index">08</span><div><h3>Painel de Fichas SEMOB</h3><p>Consulta territorial e síntese de investimentos por município.</p></div><span class="project-meta">Observable · PostgreSQL</span><span class="project-status">Projeto interno</span></article>
+        <article class="project restricted" data-category="dados"><span class="project-index">09</span><div><h3>Painel Novo PAC — PC 32</h3><p>Acompanhamento de propostas, alterações de base e recortes executivos.</p></div><span class="project-meta">Observable · ETL</span><span class="project-status">Projeto interno</span></article>
+        <article class="project restricted" data-category="mobilidade"><span class="project-index">10</span><div><h3>PND-TPC</h3><p>Portal analítico para a Plataforma Nacional de Dados do Transporte Público Coletivo.</p></div><span class="project-meta">Next.js · Cartografia</span><span class="project-status">Em desenvolvimento</span></article>
+        <article class="project restricted" data-category="mobilidade"><span class="project-index">11</span><div><h3>Explorador GTFS Fortaleza</h3><p>Exploração de linhas, viagens e horários a partir de dados GTFS.</p></div><span class="project-meta">FastAPI · Next.js</span><span class="project-status">Protótipo</span></article>
+        <article class="project restricted" data-category="mobilidade"><span class="project-index">12</span><div><h3>Radar Recarga kWh</h3><p>Comparador colaborativo de preços de recarga de veículos elétricos.</p></div><span class="project-meta">Mapas · PWA</span><span class="project-status">MVP</span></article>
+        <article class="project restricted" data-category="produto"><span class="project-index">13</span><div><h3>Agenda de Carregadores</h3><p>Reservas, fila de espera e validação operacional de recargas elétricas.</p></div><span class="project-meta">Produto · Operações</span><span class="project-status">Projeto interno</span></article>
+        <article class="project restricted" data-category="dados"><span class="project-index">14</span><div><h3>População Beneficiada — FGTS</h3><p>Metodologia parametrizada para estimar alcance de investimentos em mobilidade.</p></div><span class="project-meta">Quarto · Estatística</span><span class="project-status">Estudo técnico</span></article>
+        <article class="project restricted" data-category="dados"><span class="project-index">15</span><div><h3>SIMU</h3><p>Arquitetura de informação para indicadores e dados abertos de mobilidade.</p></div><span class="project-meta">Portal · Dados abertos</span><span class="project-status">Conceito</span></article>
+        <article class="project restricted" data-category="ia"><span class="project-index">16</span><div><h3>Automação de TCI</h3><p>Classificação e exportação estruturada de informações técnicas.</p></div><span class="project-meta">Python · Automação</span><span class="project-status">Ferramenta interna</span></article>
+        <article class="project restricted" data-category="ia"><span class="project-index">17</span><div><h3>Aferição PEI/PPA</h3><p>Consolidação e conferência de indicadores de planejamento institucional.</p></div><span class="project-meta">Python · Qualidade</span><span class="project-status">Ferramenta interna</span></article>
+        <article class="project restricted" data-category="mobilidade"><span class="project-index">18</span><div><h3>Observatório da Mobilidade</h3><p>Ambiente integrado para projetos, indicadores e inteligência territorial.</p></div><span class="project-meta">Next.js · Dados</span><span class="project-status">Em desenvolvimento</span></article>
+      </div>
+      <p class="result-count"><span id="visible-count">18</span> projetos exibidos</p>
+    </section>
+
+    <section class="about" id="sobre" aria-labelledby="titulo-sobre">
+      <p class="eyebrow">Sobre</p>
+      <div><h2 id="titulo-sobre">Entre planilhas complexas e interfaces claras.</h2><p>Atuo na interseção entre mobilidade urbana, políticas públicas e tecnologia. Estruturo dados, desenvolvo metodologias e desenho produtos digitais para transformar informação dispersa em instrumentos úteis de gestão.</p></div>
+      <div class="capabilities" aria-label="Áreas de atuação"><span>Engenharia de dados</span><span>Visualização</span><span>Produtos digitais</span><span>Pesquisa aplicada</span><span>Automação com IA</span><span>Mobilidade urbana</span></div>
     </section>
   </main>
 
   <footer>
-    <span>Ramson</span>
-    <span>Mobilidade urbana e dados</span>
+    <div><strong>Ramson</strong><span>Mobilidade · Dados · Tecnologia</span></div>
+    <p>Projetos públicos e trabalhos selecionados.<br>Brasília, 2026.</p>
+    <a href="#" aria-label="Voltar ao início">Voltar ao topo ↑</a>
   </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('[data-filter]');
+    const projects = document.querySelectorAll('.project');
+    const count = document.querySelector('#visible-count');
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      let visible = 0;
+      buttons.forEach((item) => { const selected = item === button; item.classList.toggle('active', selected); item.setAttribute('aria-pressed', String(selected)); });
+      projects.forEach((project) => { const show = filter === 'all' || project.dataset.category === filter; project.hidden = !show; if (show) visible += 1; });
+      count.textContent = visible;
+    }));
+  </script>
 </body>
 </html>
